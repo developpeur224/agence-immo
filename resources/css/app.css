@@ -1,0 +1,11 @@
+/* Bootstrap CSS */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Bootstrap Icons */
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+/* Tom Select */
+@import "tom-select/dist/css/tom-select.bootstrap5.css";
+
+/* Tes styles personnalisés */
+@import 'base.css';

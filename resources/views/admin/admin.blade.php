@@ -4,36 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') | Administration</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.bootstrap5.css" rel="stylesheet">
-    <style>
-        .toast-container {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1100;
-            width: auto;
-            max-width: 100%;
-        }
-        .navbar-custom {
-            background-color: #2c3e50;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .navbar-custom .nav-link {
-            color: #ecf0f1;
-            font-weight: 500;
-        }
-        .navbar-custom .nav-link:hover,
-        .navbar-custom .nav-link.active {
-            color: #3498db;
-        }
-        .navbar-brand {
-            font-weight: 700;
-            color: white !important;
-        }
-    </style>
+    
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/base.admin.css'])
+
     @yield('styles')
 </head>
 <body>
@@ -109,34 +82,9 @@
     </div>
 
     <!-- Bootstrap JS (avec Popper inclus) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialisation de Tom Select seulement si des selects multiples existent
-            const multiSelects = document.querySelectorAll('select[multiple]');
-            if (multiSelects.length > 0) {
-                multiSelects.forEach(select => {
-                    try {
-                        new TomSelect(select, {
-                            plugins: ['remove_button'],
-                            placeholder: 'Sélectionnez...',
-                        });
-                    } catch (e) {
-                        console.error('Erreur initialisation TomSelect:', e);
-                    }
-                });
-            }
-
-            // Initialisation des toasts
-            var toastElList = [].slice.call(document.querySelectorAll('.toast'));
-            toastElList.map(function(toastEl) {
-                return new bootstrap.Toast(toastEl, {
-                    autohide: true,
-                    delay: 5000
-                }).show();
-            });
-        });
+       
     </script>
     @yield('scripts')
 </body>

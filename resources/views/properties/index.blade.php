@@ -88,28 +88,5 @@
 @endsection
 
 @section('styles')
-<style>
-    /* Style spécifique pour cette page */
-    .hero-section-sm {
-        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://source.unsplash.com/random/1920x600/?real-estate');
-        background-size: cover;
-        background-position: center;
-    }
-    
-    .breadcrumb {
-        padding: 0.5rem 1rem;
-    }
-    
-    .breadcrumb-item a {
-        text-decoration: none;
-    }
-    
-    .property-list-view .card {
-        transition: transform 0.3s ease;
-    }
-    
-    .property-list-view .card:hover {
-        transform: translateY(-5px);
-    }
-</style>
+    @vite('resources/css/index.property.css')
 @endsection

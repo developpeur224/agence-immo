@@ -5,138 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Agence Immo - Trouvez votre bien idéal')</title>
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-        }
-        
-        .navbar {
-            background-color: var(--primary-color) !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://plus.unsplash.com/premium_photo-1661902468735-eabf780f8ff6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFpc29uJTIwZGUlMjBsdXhlfGVufDB8fDB8fHww');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 120px 0;
-            margin-bottom: 60px;
-        }
-        
-        .property-card {
-            border: none;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            margin-bottom: 30px;
-        }
-        
-        .property-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .property-img {
-            height: 220px;
-            object-fit: cover;
-            width: 100%;
-        }
-        
-        
-        .property-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        /* Badge pour les biens vendus */
-        .badge-sold {
-            background-color: #e74c3c; /* Rouge vif */
-            box-shadow: 0 2px 5px rgba(231, 76, 60, 0.3);
-        }
-        
-        /* Badge pour les biens en vente */
-        .badge-available {
-            background-color: #2ecc71; /* Vert frais */
-            box-shadow: 0 2px 5px rgba(46, 204, 113, 0.3);
-        }
-        
-        /* Badge pour les nouvelles offres */
-        .badge-new {
-            background-color: #3498db; /* Bleu */
-            box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
-        }
-
-        
-        .property-price {
-            color: var(--secondary-color);
-            font-weight: 700;
-            font-size: 1.4rem;
-        }
-        
-        .property-features i {
-            color: var(--secondary-color);
-            margin-right: 5px;
-        }
-        
-        .btn-primary {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-        }
-        
-        .btn-primary:hover {
-            background-color: #2980b9;
-            border-color: #2980b9;
-        }
-        
-        .section-title {
-            position: relative;
-            margin-bottom: 40px;
-            padding-bottom: 15px;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--secondary-color);
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 40px 0;
-            margin-top: 60px;
-        }
-    </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    
 
     @yield(section: 'styles')
 </head>
@@ -234,35 +107,6 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Animation au scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const propertyCards = document.querySelectorAll('.property-card');
-            
-            const animateOnScroll = () => {
-                propertyCards.forEach(card => {
-                    const cardPosition = card.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.2;
-                    
-                    if(cardPosition < screenPosition) {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }
-                });
-            };
-            
-            // Initial state
-            propertyCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'all 0.5s ease';
-            });
-            
-            window.addEventListener('load', animateOnScroll);
-            window.addEventListener('scroll', animateOnScroll);
-        });
-    </script>
+    
 </body>
 </html>
