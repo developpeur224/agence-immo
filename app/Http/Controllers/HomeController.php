@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $properties = Property::orderBy('created_at', 'desc')->limit(6)->get();
+        $properties = Property::available(true)->recent()->limit(6)->get();
         return view('home', [
             'properties' => $properties,
         ]);

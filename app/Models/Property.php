@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property int $id
@@ -50,6 +52,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Property extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'title',
@@ -74,5 +77,15 @@ class Property extends Model
      public function images()
     {
         return $this->hasMany(PropertyImage::class);
+    }
+
+    public function scopeAvailable(Builder $builder, bool $available = true): Builder
+    {
+        return $builder->where('sold', !$available);
+    }
+
+    public function scopeRecent(Builder $builder): Builder
+    {
+        return $builder->orderBy('created_at', 'desc');
     }
 }
